@@ -16,7 +16,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.http import HttpResponse
-from django.urls import path
+from django.urls import include, path
+
 
 def hello(_request):
     "Test route for fly.io"
@@ -26,4 +27,5 @@ def hello(_request):
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("hello/", hello, name="hello"),
+    path("polls/", include("polls.urls")),
 ]
